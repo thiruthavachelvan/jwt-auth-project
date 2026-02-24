@@ -1,0 +1,102 @@
+{
+  "info": {
+    "_postman_id": "dcf096a6-2431-4f53-847f-59cff69ce483",
+    "name": "JWT Auth API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52631897",
+    "_collection_link": "https://go.postman.co/collection/52631897-dcf096a6-2431-4f53-847f-59cff69ce483?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"thiru\",\r\n  \"email\": \"thiru@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jwt-auth-project-z5dh.onrender.com/api/auth/register",
+          "protocol": "https",
+          "host": [
+            "jwt-auth-project-z5dh",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"thiru@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jwt-auth-project-z5dh.onrender.com/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "jwt-auth-project-z5dh",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get User",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWM3ZjA1YjhjNGNjYzU0MGJmZTNlZCIsImVtYWlsIjoidGhpcnVAZW1haWwuY29tIiwiaWF0IjoxNzcxOTYyNjMyLCJleHAiOjE3NzE5NjYyMzJ9.ZwePkpLXq5JZIbQcLgOrebYDZQQGiwexbmHMe7AL3L0",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://jwt-auth-project-z5dh.onrender.com/api/auth/user",
+          "protocol": "https",
+          "host": [
+            "jwt-auth-project-z5dh",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
