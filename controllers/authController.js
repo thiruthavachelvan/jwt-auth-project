@@ -8,6 +8,19 @@ exports.register = async (req, res) => {
 
         const { username, email, password } = req.body;
 
+        // Validation check
+        if (!username || !email || !password) {
+            return res.status(400).json({
+                message: "Username, email, and password are required"
+            });
+        }
+
+        if (password.length < 6) {
+            return res.status(400).json({
+                message: "Password must be at least 6 characters"
+            });
+        }
+
         // check if user exists
         const existingUser = await User.findOne({ email });
 
@@ -50,9 +63,22 @@ exports.login = async (req, res) => {
 
         const { email, password } = req.body;
 
+        // Validation check
+        if (!email || !password) {
+            return res.status(400).json({
+                message: "Email and password are required"
+            });
+        }
+
+        if (password.length < 6) {
+            return res.status(400).json({
+                message: "Password must be at least 6 characters"
+            });
+        }
+
         const user = await User.findOne({ email });
 
-        if(!user){
+        if (!user) {
             return res.status(400).json({
                 message: "User not found"
             });
@@ -60,7 +86,7 @@ exports.login = async (req, res) => {
 
         const isMatch = await bcrypt.compare(password, user.password);
 
-        if(!isMatch){
+        if (!isMatch) {
             return res.status(400).json({
                 message: "Invalid password"
             });
@@ -78,7 +104,7 @@ exports.login = async (req, res) => {
         });
 
     }
-    catch(error){
+    catch (error) {
         res.status(500).json({
             error: error.message
         });
